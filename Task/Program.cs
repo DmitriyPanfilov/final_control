@@ -6,8 +6,9 @@
 }
 void ShowArray(string[] array) 
 {
-    for (int i = 0; i < array.Length; i++) {
-        System.Console.Write($"{array[i]}  ");
+    for (int i = 0; i < array.Length; i++) 
+    {
+        System.Console.Write($"{array[i]} ");
     }
     System.Console.WriteLine();
 }
@@ -17,14 +18,17 @@ string[] StringArray()
     string value = String.Empty;
     string[] secondArray = new string[20];
     System.Console.WriteLine($"Введите 'stop' для завершения ввода");
-    for (count = 0; value != "stop"; count++) {
+    for (count = 0; value != "stop"; count++) 
+    {
         value = Prompt($"Введите {count+1}-ое значение ");
-        if (value != "stop") {
+        if (value != "stop") 
+        {
             secondArray[count] = value;
         }
     }
     string[] array = new string[count-1];
-    for (int i = 0; i < array.Length; i++) {
+    for (int i = 0; i < array.Length; i++) 
+    {
          array[i] = secondArray[i];
     }
     return array;
@@ -33,18 +37,18 @@ string[] StringArray()
 string[] CheckArray(string[] array)
 {  
    int count = 0;
-   int index = 0;
-   for (int i = 0; i < array.Length; i++) { // Перебор массива по элементам
-       if (array[i].Length <= 3) count++;
-   }
-   string[] finalArray = new string[count];
-   for (int j = 0; j < array.Length; j++) { // Проверяем длину введенной строки
-       if (array[j].Length <= 3) {
-           finalArray[index] = array[j];
-           index++;
-       }
+
+   string[] finalArray = new string[array.Length];
+   for (int i = 0; i < array.Length; i++) // Перебор массива по элементам и создание нового масива
+   {
+       if (array[i].Length <= 3)
+       {
+        finalArray[count] = array[i];
+        count++;
+        }
    }
    return finalArray;
+   
 }
 
 string[] array = StringArray();

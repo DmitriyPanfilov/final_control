@@ -30,10 +30,28 @@ string[] StringArray()
     return array;
 }
 
+string[] CheckArray(string[] array)
+{  
+   int count = 0;
+   int index = 0;
+   for (int i = 0; i < array.Length; i++) { // Перебор массива по элементам
+       if (array[i].Length <= 3) count++;
+   }
+   string[] finalArray = new string[count];
+   for (int j = 0; j < array.Length; j++) { // Проверяем длину введенной строки
+       if (array[j].Length <= 3) {
+           finalArray[index] = array[j];
+           index++;
+       }
+   }
+   return finalArray;
+}
+
 string[] array = StringArray();
 System.Console.Write("Полученные данные: ");
 ShowArray(array);
-
+System.Console.Write("Результат: ");
+ShowArray(CheckArray(array));
 
 
 
